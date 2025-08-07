@@ -5,6 +5,16 @@ class project {
         this.todos = [];
         this.createdAt = new Date();
     }
+
+    addtodo(todo){
+        this.todos.push(todo);
+        return this;
+    }
+
+    removeTodo(todoId){
+        this.todos = this.todos.filter(todo => todo.id !== todoId)
+        return this;
+    }
 }
 
 export { project }

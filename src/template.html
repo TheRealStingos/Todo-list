@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="top-bar">
+        <button id="new-form">New</button>
+        <button id="new-todo">Task</button>
+            <form method="post">
+                <label for="todo-title">Task Title</label>
+                <input type="text" id="todo-title" name="todo-title" placeholder="Title">
+                <br>
+                <label for="todo-desc">Description</label>
+                <input type="text" id="todo-desc" name="todo-desc" placeholder="Description">
+                <br>
+                <label for="due-date">Due Date:</label>
+                <input type="date" id="due-date" name="due-date">
+                <br>
+                <p id="prio-label">Priorty</p>
+                <input type="radio" id="low" name="priority" value="low">
+                <label for="low">Low</label>
+                <br>
+                <input type="radio" id="medium" name="priority" value="medium">
+                <label for="medium">Medium</label>
+                <br>
+                <input type="radio" id="high" name="priority" value="high">
+                <label for="high">High</label>
+                <br>
+                <button id="task-submit">Submit</button>
+            </form>
+
+        <button id="new-project">Project</button>
+            <form method="post">
+                <label for="proj-title">Project Title</label>
+                <input type="text" id="proj-title" name="proj-title" placeholder="Title">
+                <br>
+                <p id="prio-label">Priorty</p>
+                <input type="radio" id="low" name="priority" value="low">
+                <label for="low">Low</label>
+                <br>
+                <input type="radio" id="medium" name="priority" value="medium">
+                <label for="medium">Medium</label>
+                <br>
+                <input type="radio" id="high" name="priority" value="high">
+                <label for="high">High</label>
+                <br>
+                <button id="proj-submit">Submit</button>
+            </form>
+    </div>
+    <div id="side-bar">
+        <div class = "prio-bar" id = "prio"></div>
+            <div class = "prio-bar" id = "low"></div>
+            <div class = "prio-bar" id = "med"></div>
+            <div class = "prio-bar" id = "high"></div>
+            <div class = "prio-bar" id = "all"></div>
+        <div></div>
+        <div id="projects"></div>
+    </div>
+    <div id="content"></div>
+    <script src="index.js"></script>
+</body>
+</html>

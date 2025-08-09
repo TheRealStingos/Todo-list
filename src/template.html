@@ -9,15 +9,18 @@
 <body>
     <div id="top-bar">
         <button id="new-form">New</button>
-        <button id="new-todo">Task</button>
-            <form method="post">
+        <button id="new-todo" class="submit-form">Task</button>
+            <form id="new-task-form" method="post">
                 <label for="todo-title">Task Title</label>
+                <br>
                 <input type="text" id="todo-title" name="todo-title" placeholder="Title">
                 <br>
                 <label for="todo-desc">Description</label>
+                <br>
                 <input type="text" id="todo-desc" name="todo-desc" placeholder="Description">
                 <br>
                 <label for="due-date">Due Date:</label>
+                <br>
                 <input type="date" id="due-date" name="due-date">
                 <br>
                 <p id="prio-label">Priorty</p>
@@ -33,9 +36,10 @@
                 <button id="task-submit">Submit</button>
             </form>
 
-        <button id="new-project">Project</button>
-            <form method="post">
+        <button id="new-project" class="submit-form">Project</button>
+            <form id="new-proj-form" method="post">
                 <label for="proj-title">Project Title</label>
+                <br>
                 <input type="text" id="proj-title" name="proj-title" placeholder="Title">
                 <br>
                 <p id="prio-label">Priorty</p>

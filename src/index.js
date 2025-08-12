@@ -22,8 +22,6 @@ document.getElementById("new-form").addEventListener("click", function() {
     })
 });
 
-const TaskSubmit = document.getElementById("task-submit");
-const ProjSubmit = document.getElementById("proj-submit");
 const defaultProj = new project("default");
 
 document.getElementById("new-task-form").addEventListener("submit", function(event) {
@@ -36,6 +34,16 @@ document.getElementById("new-task-form").addEventListener("submit", function(eve
     
     defaultProj.todos.push(new todo(todoName, todoDesc, prio, dueDate));
     console.log(defaultProj);
+});
+
+document.getElementById("new-proj-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const todoName = document.getElementById("proj-title").value;
+    
+    const proj = new project(todoName);
+
+    console.log(proj);
 });
 
 const test1 = new todo("test1", "testing");

@@ -31,8 +31,8 @@ document.getElementById("new-task-form").addEventListener("submit", function(eve
     defaultProj.todos.push(new todo(todoName, todoDesc, prio, dueDate));
 
     //Reset new task/proj forms
-    document.getElementById("new-task-form").style.display="none";
-    document.getElementById("new-form").style.display="block";
+    document.getElementById("new-task-form").classList.replace("visible", "invisible");
+    document.getElementById("new-form").classList.replace("invisible", "visible");
 });
 
 export { todo }

@@ -33,8 +33,8 @@ document.getElementById("new-proj-form").addEventListener("submit", function(eve
     projArray.push(new project(projName));
 
     //Reset new task/project forms
-    document.getElementById("new-proj-form").style.display="none";
-    document.getElementById("new-form").style.display="block";
+    document.getElementById("new-proj-form").classList.replace("visible", "invisible");;
+    document.getElementById("new-form").classList.replace("invisible", "visible");;
 });
 
 

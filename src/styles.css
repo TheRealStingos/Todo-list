@@ -1,4 +1,7 @@
-form, .submit-form {
-    display: none;
+.visible {
+    display: block;
 }
 
+.invisible {
+    display: none;
+}

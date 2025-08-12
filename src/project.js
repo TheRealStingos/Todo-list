@@ -17,4 +17,25 @@ class project {
     }
 }
 
-export { project }
+//Create array to store projects
+const projArray = [];
+const defaultProj = new project("default");
+projArray.push(defaultProj);
+
+
+//Get params for project creation
+document.getElementById("new-proj-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const projName = document.getElementById("proj-title").value;
+
+    //Push project to default array
+    projArray.push(new project(projName));
+
+    //Reset new task/project forms
+    document.getElementById("new-proj-form").style.display="none";
+    document.getElementById("new-form").style.display="block";
+});
+
+
+export { project, defaultProj, projArray }

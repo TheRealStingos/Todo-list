@@ -22,6 +22,22 @@ document.getElementById("new-form").addEventListener("click", function() {
     })
 });
 
+const TaskSubmit = document.getElementById("task-submit");
+const ProjSubmit = document.getElementById("proj-submit");
+const defaultProj = new project("default");
+
+document.getElementById("new-task-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const todoName = document.getElementById("todo-title").value;
+    const todoDesc = document.getElementById("todo-desc").value;
+    const dueDate = document.getElementById("due-date").value;
+    const prio = document.querySelector('input[name="priority"]:checked')?.value || null;
+    
+    defaultProj.todos.push(new todo(todoName, todoDesc, prio, dueDate));
+    console.log(defaultProj);
+});
+
 const test1 = new todo("test1", "testing");
 const test2 = new todo("test2", "testing again");
 const test3 = new project("test proj");

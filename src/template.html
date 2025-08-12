@@ -8,9 +8,9 @@
 </head>
 <body>
     <div id="top-bar">
-        <button id="new-form">New</button>
+        <button id="new-form" class="visible">New</button>
         <button id="new-todo" class="submit-form">Task</button>
-            <form id="new-task-form" method="post">
+            <form id="new-task-form">
                 <label for="todo-title">Task Title</label>
                 <br>
                 <input type="text" id="todo-title" name="todo-title" placeholder="Title">
@@ -37,7 +37,7 @@
             </form>
 
         <button id="new-project" class="submit-form">Project</button>
-            <form id="new-proj-form" method="post">
+            <form id="new-proj-form">
                 <label for="proj-title">Project Title</label>
                 <br>
                 <input type="text" id="proj-title" name="proj-title" placeholder="Title">
@@ -65,6 +65,6 @@
         <div id="projects"></div>
     </div>
     <div id="content"></div>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>

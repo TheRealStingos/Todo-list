@@ -1,3 +1,5 @@
+import { saveProjects as saveProjectsToStorage, loadProjectsData } from "./storage.js";
+
 class project {
     constructor (name) {
         this.name = name;
@@ -17,11 +19,40 @@ class project {
     }
 }
 
-//Create array to store projects
-const projArray = [];
-const defaultProj = new project("default");
-projArray.push(defaultProj);
+// Function to save projects to localStorage
+function saveProjects() {
+    saveProjectsToStorage(projArray);
+}
 
+// Function to load projects from localStorage
+function loadProjects() {
+    const projectsData = loadProjectsData();
+    if (projectsData) {
+        // Recreate project instances from the stored data
+        return projectsData.map(projData => {
+            const proj = new project(projData.name);
+            proj.id = projData.id;
+            proj.createdAt = new Date(projData.createdAt);
+            // Store todos as plain objects for now
+            proj.todos = projData.todos || [];
+            return proj;
+        });
+    }
+    return null;
+}
+
+//Create array to store projects
+let projArray = loadProjects();
+
+// If no stored projects, create default
+if (!projArray) {
+    projArray = [];
+    const defaultProj = new project("default");
+    projArray.push(defaultProj);
+    saveProjects(); // Save the initial state
+}
+
+const defaultProj = projArray.find(proj => proj.name === "default") || projArray[0];
 
 //Get params for project creation
 document.getElementById("new-proj-form").addEventListener("submit", function(event) {
@@ -29,13 +60,16 @@ document.getElementById("new-proj-form").addEventListener("submit", function(eve
     
     const projName = document.getElementById("proj-title").value;
 
-    //Push project to default array
+    //Push project to project array
     projArray.push(new project(projName));
 
     //Reset new task/project forms
-    document.getElementById("new-proj-form").classList.replace("visible", "invisible");;
-    document.getElementById("new-form").classList.replace("invisible", "visible");;
+    document.getElementById("new-proj-form").classList.replace("visible", "invisible");
+    document.getElementById("new-form").classList.replace("invisible", "visible");
+    
+    // Save to localStorage properly
+    saveProjects();
+    console.log(projArray);
 });
 
-
-export { project, defaultProj, projArray }
+export { project, defaultProj, projArray, saveProjects };

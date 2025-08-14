@@ -1,10 +1,12 @@
 import { todo } from "./todo.js"
-import { project } from "./project.js"
+import { projArray, project } from "./project.js"
 import "./styles.css"
+
+// projArray is now loaded from localStorage in project.js
+console.log(projArray);
 
 document.getElementById("new-form").addEventListener("click", function() {
     document.getElementById("new-form").classList.add("invisible");
-
 
     document.getElementById("new-todo").classList.replace("invisible", "visible")
     document.getElementById("new-project").classList.replace("invisible", "visible")
@@ -18,6 +20,6 @@ document.getElementById("new-form").addEventListener("click", function() {
     document.getElementById("new-project").addEventListener("click", function() {
         document.getElementById("new-todo").classList.replace("visible", "invisible");
         document.getElementById("new-project").classList.replace("visible", "invisible");
-        document.getElementById("new-proj-form").classList.replace("invisible", "visible")
+        document.getElementById("new-proj-form").classList.replace("invisible", "visible");
     })
 });

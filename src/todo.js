@@ -1,4 +1,5 @@
-import { defaultProj, projArray } from "./project";
+import { defaultProj, projArray } from "./project.js";
+import { saveProjects } from "./storage.js";
 
 class todo {
     constructor (title, description, priority, dueDate, project = null) {
@@ -17,7 +18,6 @@ class todo {
     }
 }
 
-
 //Get params for task creation
 document.getElementById("new-task-form").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -33,6 +33,9 @@ document.getElementById("new-task-form").addEventListener("submit", function(eve
     //Reset new task/proj forms
     document.getElementById("new-task-form").classList.replace("visible", "invisible");
     document.getElementById("new-form").classList.replace("invisible", "visible");
+    
+    // Save changes to localStorage
+    saveProjects(projArray);
 });
 
-export { todo }
+export { todo };

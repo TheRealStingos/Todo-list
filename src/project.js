@@ -19,12 +19,10 @@ class project {
     }
 }
 
-// Function to save projects to localStorage
 function saveProjects() {
     saveProjectsToStorage(projArray);
 }
 
-// Function to load projects from localStorage
 function loadProjects() {
     const projectsData = loadProjectsData();
     if (projectsData) {
@@ -49,7 +47,7 @@ if (!projArray) {
     projArray = [];
     const defaultProj = new project("default");
     projArray.push(defaultProj);
-    saveProjects(); // Save the initial state
+    saveProjects();
 }
 
 const defaultProj = projArray.find(proj => proj.name === "default") || projArray[0];

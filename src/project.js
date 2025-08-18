@@ -67,6 +67,11 @@ document.getElementById("new-proj-form").addEventListener("submit", function(eve
     
     // Save to localStorage properly
     saveProjects();
+    
+    import('./display.js').then(module => {
+    module.displayProjects();
+    });
+
     console.log(projArray);
 });
 

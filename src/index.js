@@ -1,9 +1,8 @@
 import { todo } from "./todo.js"
 import { projArray, project } from "./project.js"
+import "./display.js"
 import "./styles.css"
 
-// projArray is now loaded from localStorage in project.js
-console.log(projArray);
 
 document.getElementById("new-form").addEventListener("click", function() {
     document.getElementById("new-form").classList.add("invisible");

@@ -8,12 +8,13 @@
 </head>
 <body>
     <div id="top-bar">
+        <h1 class="page-title">To Do List</h1>
         <button id="new-form" class="visible">New</button>
         <button id="new-todo" class="submit-form invisible">Task</button>
             <form id="new-task-form" class="invisible">
                 <label for="todo-title">Task Title</label>
                 <br>
-                <input type="text" id="todo-title" name="todo-title" placeholder="Title">
+                <input type="text" id="todo-title" name="todo-title" placeholder="Title" required>
                 <br>
                 <label for="todo-desc">Description</label>
                 <br>
@@ -23,7 +24,17 @@
                 <br>
                 <input type="date" id="due-date" name="due-date">
                 <br>
-                <p id="prio-label">Priorty</p>
+                <label for="project-select">Project:</label>
+                <br>
+                <select id="project-select" name="project-select">
+                    <option value="">Loading projects...</option>
+                </select>
+                <br>
+                <label for="new-project-name" id="new-project-label" style="display: none;">New Project Name:</label>
+                <br style="display: none;" id="new-project-br">
+                <input type="text" id="new-project-name" name="new-project-name" placeholder="Enter project name" style="display: none;">
+                <br>
+                <p id="prio-label">Priority</p>
                 <input type="radio" id="low" name="priority" value="low">
                 <label for="low">Low</label>
                 <br>
@@ -33,20 +44,27 @@
                 <input type="radio" id="high" name="priority" value="high">
                 <label for="high">High</label>
                 <br>
-                <button id="task-submit">Submit</button>
+                <button id="task-submit" type="submit">Submit</button>
             </form>
 
         <button id="new-project" class="submit-form invisible">Project</button>
             <form id="new-proj-form" class="invisible">
                 <label for="proj-title">Project Title</label>
                 <br>
-                <input type="text" id="proj-title" name="proj-title" placeholder="Title">
+                <input type="text" id="proj-title" name="proj-title" placeholder="Title" required>
                 <br>
-                <button id="proj-submit">Submit</button>
+                <button id="proj-submit" type="submit">Submit</button>
             </form>
     </div>
-    
-    <div id="projects"></div>
+    <div id="side-bar">
+        <div class = "prio-bar" id = "prio"></div>
+            <div class = "prio-bar" id = "low"></div>
+            <div class = "prio-bar" id = "med"></div>
+            <div class = "prio-bar" id = "high"></div>
+            <div class = "prio-bar" id = "all"></div>
+        <div></div>
+        <div id="projects"></div>
+    </div>
     <div id="content"></div>
     <script type="module" src="index.js"></script>
 </body>

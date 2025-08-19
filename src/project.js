@@ -65,13 +65,22 @@ document.getElementById("new-proj-form").addEventListener("submit", function(eve
     document.getElementById("new-proj-form").classList.replace("visible", "invisible");
     document.getElementById("new-form").classList.replace("invisible", "visible");
     
+    // Clear the form input
+    document.getElementById("proj-title").value = '';
+    
     // Save to localStorage properly
     saveProjects();
     
+    // Update the display and dropdown
     import('./display.js').then(module => {
-    module.displayProjects();
+        module.displayProjects();
     });
-
+    
+    // Update project dropdown in task form
+    import('./todo.js').then(module => {
+        module.populateProjectDropdown();
+    });
+    
     console.log(projArray);
 });
 

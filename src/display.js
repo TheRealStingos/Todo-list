@@ -12,7 +12,7 @@ function displayProjects() {
     projArray.forEach(proj => {
         const projDiv = document.createElement("div");
         projDiv.classList.add("projects");
-        projDiv.dataset.projectId = proj.id; // Store project ID for later use
+        projDiv.dataset.projectId = proj.id;
         
         // Create project content structure
         const projectContent = document.createElement("div");
@@ -24,7 +24,7 @@ function displayProjects() {
         
         const deleteBtn = document.createElement("button");
         deleteBtn.classList.add("delete-project");
-        deleteBtn.innerHTML = "×";
+        deleteBtn.innerHTML = "x";
         deleteBtn.title = "Delete project";
         
         // Prevent delete button click from triggering project selection

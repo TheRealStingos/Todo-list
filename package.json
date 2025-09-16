@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack serve --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/TheRealStingos/Todo-list/issues"
   },
-  "homepage": "https://github.com/TheRealStingos/Todo-list#readme",
+  "homepage": "https://TheRealStingos.github.io/Todo-list/",
   "description": "",
   "devDependencies": {
     "css-loader": "^7.1.2",

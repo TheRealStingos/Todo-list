@@ -1,0 +1,45 @@
+# .github/workflows/deploy.yml
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Build project
+      run: npm run build
+      
+    - name: Set correct base path for GitHub Pages
+      run: |
+        # Update the base path in built files if needed
+        # This step handles the repository name in the path
+        if [ "${{ github.repository }}" != "${{ github.repository_owner }}/github.io" ]; then
+          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+          echo "Repository is not a user/org page, setting base path to /$REPO_NAME/"
+          # You may need to adjust paths in your built files here if your app uses absolute paths
+        fi
+      
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
